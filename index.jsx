@@ -38,9 +38,7 @@ class Search extends React.Component {
 class Recent extends React.Component {
   render() {
     return (
-      <div clas="center">
         <RecentFights />
-      </div>
     );
   }
 }
@@ -48,9 +46,7 @@ class Recent extends React.Component {
 class UpcomingFights extends React.Component {
   render() {
     return (
-      <div class="center">
         <Upcoming />
-      </div>
     );
   }
 }

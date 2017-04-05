@@ -4070,7 +4070,8 @@ nav .brand-logo {
   white-space: nowrap;
 }
 
-nav .brand-logo.center {
+nav .brand-logo.
+ {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
