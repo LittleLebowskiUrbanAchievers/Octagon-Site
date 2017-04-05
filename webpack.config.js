@@ -1,13 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
-var port = process.env.PORT || 8000
 
 var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
 var APP_DIR = path.resolve(__dirname, '');
-
-server.listen(port, function() {
-    console.log("App is running on port " + port);
-});
 
 var config = {
   entry: APP_DIR + '/index.jsx',
