@@ -1,18 +1,15 @@
-var path = require('path');
-var express = require('express');
-var app = express();
-var PORT = process.env.PORT || 8080
+const path = require('path')
+const express = require('express')
 
-app.use(express.static(path.join(__dirname, 'dist')));
+module.exports = {
+  app: function () {
+    const app = express()
+    const indexPath = path.join(__dirname, 'index.html')
+    const publicPath = express.static(path.join(__dirname, 'src/client/public'))
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/index.html')
-});
+    app.use('src/client/public', publicPath)
+    app.get('/', function (_, res) { res.sendFile(indexPath) })
 
-app.listen(PORT, function(error) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.info("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    return app
   }
-});
+}
