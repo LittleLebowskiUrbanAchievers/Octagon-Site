@@ -6,12 +6,12 @@
     "node" : "6.3.1",
     "npm" : "3.10.3"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch",
     "build" : "webpack -p",
-    "postinstall": "webpack -p --config webpack.prod.config.js",
+    "postinstall": "webpack -p --config webpack.config.js",
     "start" : "node server.js"
   },
   "repository": {
@@ -32,6 +32,8 @@
     "babel-standalone": "^6.23.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "ejs": "2.4.1",
+    "express": "4.13.3"
   }
 }
