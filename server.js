@@ -7,7 +7,13 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html')
 });
 
-app.use(express.static(__dirname + '/bundle.js'));
+app.use('/', function(request, response) {
+  response.sendFile(__dirname + '/bundle.js')
+});
+
+app.use('/', function(request, response) {
+  response.sendFile(__dirname + 'materialize')
+});
 
 app.listen(PORT, function(error) {
   if (error) {
