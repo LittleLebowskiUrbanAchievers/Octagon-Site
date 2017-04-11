@@ -7,12 +7,12 @@ class RecentFights extends React.Component {
         <div id="row">
           <h1>Recent Fights</h1>
         </div>
-        <img src="http://media.ufc.tv/generated_images_sorted//fight_286500_smallThumbnail.jpg" alt="recent-fights"/>
+        <img src="http://media.ufc.tv/generated_images_sorted//fight_286547_mediumThumbnail.jpg" alt="recent-fights"/>
         <div id="row" class="center">
-          <h5>UFC 209 Woodley vs Thompson 2</h5>
-          <p>Saturday, March 4 @ Las Vegas, Nevada</p>
-          <h5>Winner: Tyron Woodley</h5>
-          <img src="http://media.ufc.tv/fighter_images/Tyrone_Woodley/WOODLEY_TYRON.png" alt="winner"/>
+          <h5>UFC 210 Cormier vs Johnson 2</h5>
+          <p>Saturday, April 8 @ Buffalo, New York</p>
+          <h5>Winner: Daniel Cormier</h5>
+          <img src="http://media.ufc.tv/fighter_images/Daniel_Cormier/CORMIER_DANIEL.png" alt="winner"/>
         </div>
       </section>
     );
