@@ -6,7 +6,8 @@ var PORT = process.env.PORT || 8080
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html')
 });
-app.use(express.static(__dirname + 'app'));
+
+app.use(express.static(__dirname + '/bundle.js'));
 
 app.listen(PORT, function(error) {
   if (error) {
