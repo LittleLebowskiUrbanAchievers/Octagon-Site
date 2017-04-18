@@ -3,17 +3,13 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080
 
+
+app.use(express.static('public'))
+
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html')
 });
 
-app.use('/', function(request, response) {
-  response.sendFile(__dirname + '/bundle.js')
-});
-
-app.use('/', function(request, response) {
-  response.sendFile(__dirname + 'materialize')
-});
 
 app.listen(PORT, function(error) {
   if (error) {
