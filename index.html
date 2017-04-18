@@ -12,9 +12,6 @@
 </head>
 <body>
   <div id="app" class="center"></div>
-  <!-- <nav id="navbar"></nav>
-  <div id="recent"></div>
-  <div id="upcoming"></div> -->
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -24,5 +21,21 @@
   <!--Import jQuery before materialize.js-->
 
   <script type="text/javascript" src="bundle.js"></script>
+  <script>
+  var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://octagon-api.herokuapp.com/predict?f1id=2646&f2id=13767",
+  "method": "GET",
+  "headers": {
+    "cache-control": "no-cache",
+    "postman-token": "f4215c55-679f-353c-ec1f-fb062457cd75"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+  </script>
 </body>
 </html>

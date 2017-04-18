@@ -12,6 +12,7 @@ class App extends React.Component {
         <NavbarComponent />
         <RecentFights />
         <Upcoming />
+        <SearchBar />
       </div>
     );
   }
@@ -52,7 +53,3 @@ class UpcomingFights extends React.Component {
 }
 
 render(<App />, document.getElementById('app'));
-// render(<Nav/>, document.getElementById('navbar'));
-// render(<Search/>, document.getElementById('search'));
-// render(<Recent/>, document.getElementById('recent'));
-// render(<UpcomingFights/>, document.getElementById('upcoming'));
