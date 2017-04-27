@@ -1,55 +1,41 @@
 import React from 'react';
 import {render} from 'react-dom';
-import NavbarComponent from './components/NavbarComponent.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import RecentFights from './components/RecentFights.jsx';
-import Upcoming from './components/Upcoming.jsx';
+import {Router, Route, Link, IndexRoute} from 'react-router';
+import Home from './components/Home.jsx';
+import Predict from './components/Predict.jsx';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <NavbarComponent />
-        <RecentFights />
-        <Upcoming />
-        <SearchBar />
+      <nav>
+        <ul>
+          <li><a>Home</a></li>
+          <li><a>Predict</a></li>
+        </ul>
+      </nav>
+        <Predict />
       </div>
     );
   }
 }
 
-class Nav extends React.Component {
+export default App;
+
+class HomeComponent extends React.Component {
   render() {
     return (
-      <div>
-        <NavbarComponent />
-      </div>
+        <Home />
     );
   }
 }
 
-class Search extends React.Component {
-  render() {
-    return (
-        <SearchBar />
-    );
-  }
-}
-
-class Recent extends React.Component {
-  render() {
-    return (
-        <RecentFights />
-    );
-  }
-}
-
-class UpcomingFights extends React.Component {
-  render() {
-    return (
-        <Upcoming />
-    );
-  }
+class PredictComponent extends React.Component {
+   render() {
+      return (
+         <Predict />
+      );
+   }
 }
 
 render(<App />, document.getElementById('app'));
