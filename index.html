@@ -166,22 +166,42 @@
       }
     });
 
-    function searchFighters(response) {
-      // Declare variables
+    // function searchFighters(response) {
+    //   // Declare variables
+    //   var input, filter, table, tr, rowCount, a, i = 0;
+    //   input = document.getElementById('fightersearch');
+    //   filter = input.value.toUpperCase();
+    //   table = document.getElementById("fightersTable");
+    //   console.log(table)
+    //   for (i = 0; i < response.fighters.length; i++) {
+    //       tr = table.rows[i].innerHTML;
+    //       if (tr.toUpperCase().indexOf(filter) > -1) {
+    //         table.rows[i].style.display = "";
+    //       } else {
+    //         table.rows[i].style.display = "none";
+    //       }
+    //   }
+    // }
+
+
+    function searchFighters(response){
+
       var input, filter, table, tr, rowCount, a, i = 0;
       input = document.getElementById('fightersearch');
       filter = input.value.toUpperCase();
-      table = document.getElementById("fightersTable");
 
-      for (i = 0; i < response.fighters.length; i++) {
-          tr = table.rows[i].innerHTML;
-          if (tr.toUpperCase().indexOf(filter) > -1) {
-            table.rows[i].style.display = "";
-          } else {
-            table.rows[i].style.display = "none";
-          }
-      }
+      table = $('#fightersTable .row');
+
+      table.each(function(){
+        if($('.card-title',this).html().toUpperCase().indexOf(filter) == -1){
+          $(this).css('display','None');
+        }
+        else{
+          $(this).css('display',"");
+        }
+      })
     }
+
 
     function mlDisplay() {
       document.getElementById("prediction").style.display = "";
