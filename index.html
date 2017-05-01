@@ -22,18 +22,27 @@
     <input type="search" id="fightersearch" placeholder="Enter fighter name to search:" onkeyup="searchFighters()"></input>
   </form>
   <div class="center">
-    <div class="input-field" text-align="center">
-      <input data-fid="" id="name1" type="text" class="validate center">
-      <label for="name1">Fighter 1 ID</label>
-    </div>
-    <p>vs</p>
-    <div class="input-field">
-      <input data-fid="" id="name2" type="text" class="validate center">
-      <label for="name2">Fighter 2 ID</label>
+    <div class="row">
+
+      <div class="col s4 offset-s1 input-field">
+        <input data-fid="" id="name1" type="text" class="validate center">
+        <label for="name1">Fighter 1 ID</label>
+      </div>
+      <div class="col s2">
+      <p style="font-size:20px">vs</p>
+      </div>
+      <div class="col s4 input-field">
+        <input data-fid="" id="name2" type="text" class="validate center">
+        <label for="name2">Fighter 2 ID</label>
+      </div>
+
     </div>
     <button id="predictBtn" type="submit" onclick="machineLearning()" class="waves-effect waves-light btn">Predict<i class="material-icons right">send</i></button>
     <br>
     <div id="prediction" class="card sticky-action small center lighten-4" style="overflow: hidden; width: 72%; left: 14%; display: none;">
+
+      <!-- <button onclick="mlHide()" class="btn-floating btn-small waves-effect right"><i class="material-icons right">close</i></button> -->
+
       <br>
       <h2 class="center"> Winner</h2>
       <h3 id="winner" class="center">Masanori Kanehara</h3>
@@ -162,7 +171,7 @@
 
 
 
-        $("#fightersTable").append(newFighter);
+        $("#fightersTable").prepend(newFighter);
       }
     });
 
@@ -269,6 +278,10 @@
 
     function mlDisplay() {
       document.getElementById("prediction").style.display = "";
+    }
+
+    function mlHide(){
+      $('#prediction').css("display","none");
     }
 
     function hide() {
