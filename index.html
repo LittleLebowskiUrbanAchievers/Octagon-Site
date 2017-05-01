@@ -31,20 +31,20 @@
       <input data-fid="" id="name2" type="text" class="validate center">
       <label for="name2">Fighter 2 ID</label>
     </div>
-    <button id="predictBtn" type="submit" onclick="mlDisplay()" class="waves-effect waves-light btn">Predict<i class="material-icons right">send</i></button>
+    <button id="predictBtn" type="submit" onclick="machineLearning()" class="waves-effect waves-light btn">Predict<i class="material-icons right">send</i></button>
     <br>
     <div id="prediction" class="card sticky-action small center lighten-4" style="overflow: hidden; width: 72%; left: 14%; display: none;">
       <br>
       <h2 class="center"> Winner</h2>
-      <h3 class="center">Masanori Kanehara</h3>
+      <h3 id="winner" class="center">Masanori Kanehara</h3>
       <div class="card-action activator grey">
         <h5>More Info <button class="btn-floating btn-small waves-effect"><i class="material-icons center">more_vert</i></h5></button>
       </div>
       <div id="reveal" class="card-reveal" style="display: block;">
         <button onclick="hide()" class="btn-floating btn-small waves-effect right"><i class="material-icons right">close</i></button>
         <h3>Certainty</h3>
-        <h4 class="center">Masanori Kanehara: 0.63178</h4>
-        <h4 class="center">Dan Christison: 0.3655</h4>
+        <h4 id="f1Result" class="center">Masanori Kanehara: 0.63178</h4>
+        <h4 id="f2Result" class="center">Dan Christison: 0.3655</h4>
       </div>
     </div>
   </div>
@@ -119,20 +119,20 @@
       }
     }
 
-  //   var mlSettings = {
-  //     "async": true,
-  //     "crossDomain": true,
-  //     "url": "http://octagon-api-sam.herokuapp.com/predict?f1id=230&f2id=16635",
-  //     "method": "GET",
-  //     "headers": {
-  //     "cache-control": "no-cache",
-  //     "postman-token": "d47768fb-a4be-380d-1940-24d446dbf13d"
-  //   }
-  // }
-  //
-  // $.ajax(mlSettings).done(function (mlResponse) {
-  //   console.log(mlResponse);
-  // });
+
+//?f1id=230&f2id=16635
+    var mlSettings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://octagon-api-sam.herokuapp.com/predict?",
+      "method": "GET",
+      "headers": {
+      "cache-control": "no-cache",
+      "postman-token": "d47768fb-a4be-380d-1940-24d446dbf13d"
+    }
+  }
+
+
 
     $.ajax(settings).done(function (response) {
       var table = document.getElementById("fightersTable");
@@ -226,6 +226,46 @@
       })
     }
 
+
+    function machineLearning(){
+      $('#prediction').css("display","None")
+
+      input1 = $('#name1')
+      input2 = $('#name2')
+
+      if(input1.val() == "" || input2.val() == ""){
+        alert("Must have two fighters selected");
+        return;
+      }
+
+      var nowSettings = $.extend({}, mlSettings);
+
+      nowSettings['url'] += "f1id=" + input1.data("fid") + "&f2id=" + input2.data("fid");
+
+      console.log(nowSettings['url'])
+
+      $.ajax(nowSettings).done(function (mlResponse) {
+        f1prob = mlResponse['f1prob']
+        f2prob = mlResponse['f2prob']
+
+        if(f1prob > f2prob){
+          $('#winner').html(input1.val())
+        }
+        else{
+          $('#winner').html(input2.val())
+        }
+
+
+
+        $("#f1Result").html(input1.val() + ": " + f1prob.toFixed(3))
+        $("#f2Result").html(input2.val() + ": " + f2prob.toFixed(3))
+
+        $('#prediction').css("display","")
+
+      });
+
+
+    }
 
     function mlDisplay() {
       document.getElementById("prediction").style.display = "";
