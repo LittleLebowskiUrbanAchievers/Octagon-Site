@@ -26,14 +26,14 @@
 
       <div class="col s4 offset-s1 input-field">
         <input data-fid="" id="name1" type="text" class="validate center">
-        <label for="name1">Fighter 1 ID</label>
+        <label for="name1">Fighter 1</label>
       </div>
       <div class="col s2">
       <p style="font-size:20px">vs</p>
       </div>
       <div class="col s4 input-field">
         <input data-fid="" id="name2" type="text" class="validate center">
-        <label for="name2">Fighter 2 ID</label>
+        <label for="name2">Fighter 2</label>
       </div>
 
     </div>
@@ -52,14 +52,14 @@
       <div id="reveal" class="card-reveal" style="display: block;">
         <button onclick="hide()" class="btn-floating btn-small waves-effect right"><i class="material-icons right">close</i></button>
         <h3>Certainty</h3>
-        <h4 id="f1Result" class="center">Masanori Kanehara: 0.63178</h4>
-        <h4 id="f2Result" class="center">Dan Christison: 0.3655</h4>
+        <h4 id="f1Result" class="center"></h4>
+        <h4 id="f2Result" class="center"></h4>
       </div>
     </div>
   </div>
   <br>
   <ul class="collection-header center"><h5>Fighters <button onclick="showFighters()" class="btn-floating btn-tiny waves-effect"><i class="material-icons right">list</i></button></h5></ul>
-  <div id="fightersTable" class="center highlight bordered collection with-header">
+  <div id="fightersTable" class="center highlight bordered collection with-header" style="display: none;">
   </div>
 </div>
 <div id="homePage" style="flex: 1;">
@@ -128,8 +128,6 @@
       }
     }
 
-
-//?f1id=230&f2id=16635
     var mlSettings = {
       "async": true,
       "crossDomain": true,
@@ -162,7 +160,7 @@
                   '<span data-fid="'+id+'" class="card-title">'+ name +'</span>' +
                 '</div>' +
                 '<div class="card-action">' +
-                  '<a onclick="selectFighter('+id+','+ '\'' + name + '\'' +')">Select Fighter</a>' +
+                  '<button class="btn waves-effect waves-light" onclick="selectFighter('+id+','+ '\'' + name + '\'' +')">Select Fighter<i class="material-icons right">star</i></button>' +
                 '</div>' +
              '</div>' +
             '</div>' +
